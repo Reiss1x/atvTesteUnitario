@@ -53,4 +53,32 @@ Exemplo 2:
 
 A chamada: e.qtdadeBarras(10,3,23) deve retornar [8,3], ou seja, sabendo que temos 10 barras de 1Kg e 3 barras de 5kg no estoque, quantas barras de cada devem ser usadas para atender uma encomenda de 23 kg? Retorno: 8 barras de um Kg e 3 barras de 5Kg.
 
+4) Especificação do problema: Uma barca de passageiros tem 1200 lugares organizados
+em 60 fileiras de 20 lugares cada. O sistema de controle de lugares deve controlar tanto
+a ocupação dos lugares como a distribuição de peso na barca. Desta forma quando o
+cliente chega para embarcar ele escolhe um lugar e o sistema deve dizer se o lugar está
+ocupado ou se ele não pode se sentar ali em função da distribuição de peso. As regras
+de distribuição de peso são as seguintes:
+• Os primeiros 100 passageiros só podem se sentar nas fileiras de 1 a 20.
+• Os próximos 100 passageiros só podem se sentar nas fileiras de 40 a 60.
+• Os demais passageiros podem sentar-se em qualquer lugar livre.
+Os lugares são identificados da seguinte forma: F<nro da fileira>A<nro do assento>. A
+numeração das fileiras e lugares inicia em 1.
+Exemplos: F02A12, F45A01, F33A18
+A classe “GerenciaLugares” tem dois métodos que devem ser testados:
+a) int verificaLugar(String assento): que pode retornar um dos seguintes valores:
+• 0 – Identificador de assento inválido
+• 1 – Assento ocupado
+• 2 – Assento bloqueado devido a distribuição de peso
+• 3 – Assendo pode ser ocupado
+b) void ocupa(String assento) throws IllegalArgumentException: que gera exceção
+apenas se o string informado for um identificador de assento inválido. Em qualquer
+outro caso ele marca o assento como ocupado e conta mais um passageiro. O
+correto é que o método “verificaLugar” seja chamado antes para verificar se o lugar
+pode ser ocupado considerando as regras estabelecidas.
+Implemente uma classe que modela a barca (contendo os dois métodos especificados).
+Gere um conjunto de casos de teste baseados em particionamento e uma classe driver
+para testar os dois métodos especificados.
+
+
 7) 7. O valor da multa por excesso de velocidade varia conforme o tempo de habilitação do motorista. Motoristas mais experientes pagam mais caro. O limite de velocidade é de 80Km/h. Motoristas que forem pegos em velocidades entre 80km/h e 120km/hora pagam multa de R$ 250,00. Acima de 120Km/h o valor é de R$ 500,00. Esses valores são válidos para motoristas com até 5 anos de habilitação. Entre 5 e 10 anos de habilitação o valor é acrescido de 40% e acima disso o valor das multas dobra. Escreva um conjunto de casos de teste para testar a implementação desta lógica sabendo que as variáveis de entrada são a velocidade identificada e o tempo de habilitação do motorista.
